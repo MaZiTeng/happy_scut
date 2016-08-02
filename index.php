@@ -16,7 +16,7 @@ require_once "judge_screen.php";
 if(screen() == 1){
     $url = "student_log/login.php";
 }elseif (screen() == 2){
-    $url = "teacher_log/log.php";
+    $url = "teacher_log/login.php";
 }else{
     $url = "choose_screen_index.php";
 }
