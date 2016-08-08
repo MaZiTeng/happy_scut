@@ -7,17 +7,33 @@
  */
 require_once "../happy_function.php";
 
-
-$type = $_POST['type'];
+header('content-type:text/html;charset=utf-8');
 $name = $_POST['name'];
 $pw = $_POST['pw'];
-
-$DB = connectDB();
-
-
-$sql = "SELECT * FROM `teachers` WHERE name == $name";
-$res = $DB->query($sql);
 //判断登陆
 
-$url = "big_screen_index.php";
-header("location:{$url}");
+@$data = get_data("teacher","WHERE name = '$name'","pw","type","id");
+
+if(empty($type = $data['back2'])){                                        //判断是否存在该用户
+    echo "<h1>用户名错误！</h1>";
+    $url = "login.php";
+}elseif($data['back1'] != $pw) {                                 //判断密码是否正确
+    echo "<h1>密码错误！</h1>";
+    $url = "login.php";
+}else {
+    session_start();
+    $_SESSION['id'] = $data['back3'];
+    $_SESSION['type'] = $type;
+    echo "<h1>登录成功</h1>";
+    if($type == "teacher"){
+        $url = "../teacher_screen/index";
+    }elseif($type == "org"){
+        $url = "../org_screen/index";
+    }elseif($type == "admin"){
+        $url = "../admin_screen/index";
+    }
+};
+
+
+header("Refresh:4;url={$url}");
+

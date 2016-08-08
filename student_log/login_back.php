@@ -5,19 +5,34 @@
  * Date: 16/7/20
  * Time: 下午2:09
  */
+header('content-type:text/html;charset=utf-8');
 require_once "../happy_function.php";
-
+session_start();
 
 $num = $_POST['student_num'];
 $student_name = $_POST['student_name'];
+$ip = user_ip();
 
-$DB = connectDB();
+$get_num = get_data("student","WHERE num = $student_name","name");
+if($get_num['name'] != $student_name){
+    echo "姓名与学号不符";
+    $url = "login.php";
+}
+
+elseif(empty($get_num['name'])){
+    $new_one = write_data("student","name,ip,num","'$student_name','$ip','$num'");
+    echo "注册成功";
+    $_SESSION['name'] = $student_name;
+    $url = "../small_screen/index.php";
+}
+
+elseif($get_num['name'] == $student_name){
+    $update = update("student","ip = '$ip'","WHERE num = '$student_name'");
+    $_SESSION['name'] = $student_name;
+    $url = "../small_screen/index.php";
+}
 
 
-$sql = "SELECT * FROM `students` WHERE `num` == $num";
-$res = $DB->query($sql);
 
-//写入新纪录
 
-$url = "small_screen_index.php";
-header("location:{$url}");
+header("Refresh:4;url={$url}");

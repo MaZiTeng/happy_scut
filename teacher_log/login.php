@@ -14,9 +14,9 @@
 </head>
 <body>
 <form method="post" action="login_back.php">
-    用户类型：<input type="checkbox" id="type" name="type">
     账户：<input type="text" value="请输入用户名" id="name" name="name">
     密码：<input type="password" value="请输入密码" id="pw" name="pw">
+    <button type="submit">提交</button>
 </form>
 
 </body>
