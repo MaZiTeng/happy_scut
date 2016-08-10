@@ -1,7 +1,8 @@
 <?php
 /**
  * 已确定为手机端
- * 该文件显示学院/学生社团/组织
+ * 学生登陆后的第一界面
+ * 分为学院和组织两大部分
  */
 
 ?>
@@ -9,7 +10,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>最近活动</title>
+    <title>学生界面</title>
 </head>
 <body>
 <!--<a href="show.php?type=1"><button>最近活动</button></a>   -->

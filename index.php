@@ -1,9 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: mac
- * Date: 16/7/19
- * Time: 下午7:49
+ * 程序入口
+ * 判断终端
  */
 
 
