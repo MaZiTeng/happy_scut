@@ -1,9 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: mac
- * Date: 16/7/20
- * Time: 下午2:09
+ * 学生注册后台
+ * 对比姓名和学号
  */
 header('content-type:text/html;charset=utf-8');
 require_once "../happy_function.php";
@@ -23,13 +21,13 @@ elseif(empty($get_num['name'])){
     $new_one = write_data("student","name,ip,num","'$student_name','$ip','$num'");
     echo "注册成功";
     $_SESSION['name'] = $student_name;
-    $url = "../small_screen/index.php";
+    $url = "../student_screen/index.php";
 }
 
 elseif($get_num['name'] == $student_name){
     $update = update("student","ip = '$ip'","WHERE num = '$student_name'");
     $_SESSION['name'] = $student_name;
-    $url = "../small_screen/index.php";
+    $url = "../student_screen/index.php";
 }
 
 

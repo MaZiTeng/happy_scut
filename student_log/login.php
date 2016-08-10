@@ -1,3 +1,11 @@
+<?php
+/**
+ * 已确定为移动端
+ * 学生登录
+ * 判断ip是否注册
+ */
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +14,6 @@
 </head>
 <body>
 <?php
-/**
- * 移动端的页面设计
- */
 session_start();
 require_once "../happy_function.php";
 
@@ -32,7 +37,7 @@ if($judge_ip == 0){                   //未绑定,绑定IP
     register($user_id);
 }elseif ($judge_ip == 1){             //已绑定,登录系统
     echo "正在登录！";
-    $url = "../small_screen/index.php";
+    $url = "../student_screen/index.php";
     header("Refresh:4;url={$url}");
 }
 ?>
