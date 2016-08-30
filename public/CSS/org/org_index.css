@@ -1,0 +1,21 @@
+#mes{
+	width:100%;
+	height:30px;
+	border:1px red dotted;
+}
+#mes-main{
+	width:85%;
+	height:20px;
+	margin:5px 5px 5px 10%;	
+}
+#mes span{
+	position: absolute;
+	width:10%;
+	height:30px;
+	text-align: center;
+	line-height: 30px;
+}
+#mes-main a{
+	display:none;
+	opacity: 0;
+}
