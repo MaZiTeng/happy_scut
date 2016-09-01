@@ -24,8 +24,8 @@ $judge_ip = judge_ip();
 if($judge_ip == 0){                   //未绑定,绑定IP
     ?>
     <form action="login_back.php" method="post">
-        学号：<input type="text" id="student_num" name="student_num" value="请输入您的学号"><br/>
-        姓名：<input type="text" id="student_name" name="student_name" value="请输入您的姓名"><br/>
+        学号：<input type="text" id="student_num" name="student_num" placeholder="请输入您的学号"><br/>
+        姓名：<input type="text" id="student_name" name="student_name" placeholder="请输入您的姓名"><br/>
         <button type="submit">确定</button>
     </form>
 
